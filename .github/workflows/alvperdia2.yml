@@ -29,35 +29,4 @@ jobs:
 
             if (context.eventName === "project_card") {
               console.log("La tarjeta se ha movido de columna en un proyecto classic.")
-            }name: alvperdia2
-
-on:
-  workflow_dispatch:
-  issues:
-    types: [opened]
-  project_card:
-    types: [moved]
-
-jobs:
-  saludo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout del repositorio
-        uses: actions/checkout@v3
-
-      - name: Mostrar información del evento
-        uses: actions/github-script@v7
-        with:
-          script: |
-            console.log("Repositorio:", context.repo.owner + "/" + context.repo.repo)
-            console.log("Evento:", context.eventName)
-            console.log("Acción:", context.payload.action)
-
-            if (context.eventName === "issues") {
-              console.log("Issue creado:", context.payload.issue.title)
-              console.log("Número:", context.payload.issue.number)
-            }
-
-            if (context.eventName === "project_card") {
-              console.log("La tarjeta se ha movido de columna en un proyecto classic.")
             }
